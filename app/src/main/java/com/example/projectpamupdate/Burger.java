@@ -2,6 +2,7 @@ package com.example.projectpamupdate;
 
 public class Burger {
     public String nama;
+
     public String roti;
     public String daging;
     public String pelengkap;

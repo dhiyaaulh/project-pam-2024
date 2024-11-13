@@ -1,6 +1,5 @@
 package com.example.projectpamupdate;
 
-import static androidx.core.app.ActivityCompat.startActivityForResult;
 import static androidx.core.content.ContextCompat.getString;
 import static androidx.core.content.ContextCompat.startActivity;
 
@@ -12,10 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -25,7 +22,6 @@ public class BurgerAdapter extends RecyclerView.Adapter {
     private final List<Burger> burgers;
     private static final int REQUEST_EDIT_BURGER = 1;
     private BurgerAdapter.OnItemClickListener onItemClickListener;
-
 
     public BurgerAdapter(Context ctx, List<Burger> burgers) {
         this.ctx = ctx;
@@ -40,7 +36,8 @@ public class BurgerAdapter extends RecyclerView.Adapter {
         this.onItemClickListener = onItemClickListener;
     }
 
-    private class VH extends RecyclerView.ViewHolder {
+
+    private class VH extends RecyclerView.ViewHolder implements View.OnClickListener {
         private final TextView nama_burger;
         private final ImageButton gambar_burger;
 
@@ -48,14 +45,17 @@ public class BurgerAdapter extends RecyclerView.Adapter {
             super(itemView);
             this.nama_burger = itemView.findViewById(R.id.nama_burger);
             this.gambar_burger = itemView.findViewById(R.id.button_burger);
-            gambar_burger.setOnClickListener(v -> {
-                if (onItemClickListener != null) {
-                    int position = getAdapterPosition();
-                    if (position != RecyclerView.NO_POSITION) {
-                        onItemClickListener.onItemClick(position);
-                    }
+            gambar_burger.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            if (onItemClickListener != null) {
+                int position = getAdapterPosition();
+                if (position != RecyclerView.NO_POSITION) {
+                    onItemClickListener.onItemClick(position);
                 }
-            });
+            }
         }
     }
 

@@ -25,7 +25,6 @@
             android:layout_marginStart="140dp"
             android:contentDescription="Logo"
             android:gravity="center_vertical"
-            android:src="@drawable/logo_burger_1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -58,9 +57,9 @@
             android:id="@+id/button_buatan_saya"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="?android:attr/selectableItemBackground"
+            android:backgroundTint="@color/button_selector"
             android:text="Buatan saya"
-            android:textColor="#000000"
+            android:textColor="@color/button_text_selector"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/button_tersimpan"
             app:layout_constraintStart_toStartOf="parent"
@@ -71,19 +70,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="44dp"
-            android:backgroundTint="#FFA95D"
+            android:backgroundTint="@color/button_selector"
             android:text="Tersimpan"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/button_text_selector"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvBurger"
-        android:layout_width="409dp"
-        android:layout_height="478dp"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/container_frag"
+        android:name="com.example.projectpamupdate.FragmentSimpan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tombolLayout" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
