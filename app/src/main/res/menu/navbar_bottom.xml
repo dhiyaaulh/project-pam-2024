@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/roti_button"
+        android:title="Roti" />
+    <item
+        android:id="@+id/daging_button"
+        android:title="Daging" />
+    <item
+        android:id="@+id/pelengkap_button"
+        android:title="Pelengkap" />
+    <item
+        android:id="@+id/saus_button"
+        android:title="Saus" />
+</menu>
