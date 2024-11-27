@@ -1,53 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".FragmentSaya">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="280dp"
+    <Spinner
+        android:id="@+id/spinner_roti"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="40dp"
+        android:layout_margin="16dp"
+        android:entries="@array/bread_options"
+        app:layout_constraintTop_toBottomOf="@+id/etNama"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner_daging"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:entries="@array/meat_options"
+        app:layout_constraintTop_toBottomOf="@id/spinner_roti"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Dropdown for selecting sauce -->
+    <Spinner
+        android:id="@+id/spinner_saus"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:entries="@array/sauce_options"
+        app:layout_constraintTop_toBottomOf="@id/spinner_daging"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Dropdown for selecting topping -->
+    <Spinner
+        android:id="@+id/spinner_pelengkap"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:entries="@array/topping_options"
+        app:layout_constraintTop_toBottomOf="@id/spinner_saus"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Button for saving burger -->
+    <Button
+        android:id="@+id/button_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/orange"
+        android:text="Save Burger"
+        app:layout_constraintTop_toBottomOf="@id/spinner_pelengkap"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/etNama"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="28dp">
 
-            <ImageView
-                android:id="@+id/imgBurger"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                app:layout_constraintBottom_toTopOf="@+id/tvMainBurger"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/burger1" />
-
-            <TextView
-                android:id="@+id/tvMainBurger"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Mulai buat burger Anda"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imgBurger" />
-
-            <TextView
-                android:id="@+id/tvIsiMain"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="pilih bahan di bawah untuk memulai membuat burger Anda"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvMainBurger" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,3 +1,33 @@
 <resources>
-    <string name="app_name">ProjectPamupdate</string>
+    <string name="app_name">Project Burger Firebase</string>
+
+    <string-array name="bread_options">
+        <item>Pilih Roti</item>
+        <item>White Bread</item>
+        <item>Whole Wheat</item>
+        <item>Brioche</item>
+    </string-array>
+
+    <string-array name="meat_options">
+        <item>Pilih Daging</item>
+        <item>Beef</item>
+        <item>Chicken</item>
+        <item>Plant-Based</item>
+    </string-array>
+
+    <string-array name="sauce_options">
+        <item>Pilih Saus</item>
+        <item>Ketchup</item>
+        <item>Mayonnaise</item>
+        <item>BBQ Sauce</item>
+    </string-array>
+
+    <string-array name="topping_options">
+        <item>Pilih Pelengkap</item>
+        <item>Cheese</item>
+        <item>Lettuce</item>
+        <item>Tomato</item>
+        <item>Pickles</item>
+    </string-array>
 </resources>
+

@@ -80,7 +80,6 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/container_frag"
-        android:name="com.example.projectpamupdate.FragmentSimpan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -1,11 +1,6 @@
 package com.example.projectpamupdate;
 
-import static androidx.core.content.ContextCompat.getString;
-import static androidx.core.content.ContextCompat.startActivity;
-
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,47 +10,41 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DatabaseReference;
+
 import java.util.List;
 
 public class BurgerAdapter extends RecyclerView.Adapter {
     private final Context ctx;
     private final List<Burger> burgers;
-    private static final int REQUEST_EDIT_BURGER = 1;
-    private BurgerAdapter.OnItemClickListener onItemClickListener;
+    private final OnItemClickListener listener;
+    private DatabaseReference dbRef;
 
-    public BurgerAdapter(Context ctx, List<Burger> burgers) {
+    public BurgerAdapter(Context ctx, List<Burger> burgers, OnItemClickListener listener) {
         this.ctx = ctx;
         this.burgers = burgers;
+        this.listener = listener;
+    }
+
+    public void setDbRef(DatabaseReference dbRef) {
+        this.dbRef = dbRef;
     }
 
     public interface OnItemClickListener {
         void onItemClick(int position);
     }
 
-    public void setOnItemClickListener(BurgerAdapter.OnItemClickListener onItemClickListener) {
-        this.onItemClickListener = onItemClickListener;
-    }
 
-
-    private class VH extends RecyclerView.ViewHolder implements View.OnClickListener {
+    private class VH extends RecyclerView.ViewHolder {
         private final TextView nama_burger;
         private final ImageButton gambar_burger;
+        private Burger burger;
 
         public VH(@NonNull View itemView) {
             super(itemView);
             this.nama_burger = itemView.findViewById(R.id.nama_burger);
             this.gambar_burger = itemView.findViewById(R.id.button_burger);
-            gambar_burger.setOnClickListener(this);
-        }
 
-        @Override
-        public void onClick(View view) {
-            if (onItemClickListener != null) {
-                int position = getAdapterPosition();
-                if (position != RecyclerView.NO_POSITION) {
-                    onItemClickListener.onItemClick(position);
-                }
-            }
         }
     }
 
@@ -73,6 +62,9 @@ public class BurgerAdapter extends RecyclerView.Adapter {
         VH vh = (VH) holder;
         vh.nama_burger.setText(b.nama);
         vh.gambar_burger.setImageResource(R.drawable.logo_burger_1);
+        vh.gambar_burger.setOnClickListener(view -> {
+            listener.onItemClick(position);
+        });
     }
 
     @Override
